@@ -3,14 +3,8 @@ import { SITE } from '~/config.mjs';
 import Layout from '~/layouts/PageLayout.astro';
 
 import Hero from '~/components/widgets/Hero.astro';
-import Note from '~/components/widgets/Note.astro';
 import Features from '~/components/widgets/Features.astro';
-import Features2 from '~/components/widgets/Features2.astro';
-import Steps from '~/components/widgets/Steps.astro';
-import Content from '~/components/widgets/Content.astro';
 import LatestPosts from '~/components/blog/LatestPosts.astro';
-import FAQs from '~/components/widgets/FAQs.astro';
-import Stats from '~/components/widgets/Stats.astro';
 import CallToAction from '~/components/widgets/CallToAction.astro';
 
 const meta = {
@@ -21,84 +15,110 @@ const meta = {
 ---
 
 <Layout {meta}>
+  <!-- import Steps from '~/components/widgets/Steps.astro';
+  import FAQs from '~/components/widgets/FAQs.astro';
+  import Stats from '~/components/widgets/Stats.astro';
+  import Features2 from '~/components/widgets/Features2.astro';
+  import Content from '~/components/widgets/Content.astro'; -->
+
   <!-- Hero Widget ******************* -->
 
-  <Hero
-    callToAction={{ text: 'Get template', href: 'https://github.com/onwidget/astrowind', icon: 'tabler:download' }}
-    callToAction2={{ text: 'Learn more', href: '#features' }}
-    image={{ src: import('~/assets/images/hero.png'), alt: 'AstroWind Hero Image' }}
-  >
+  <Hero>
     <Fragment slot="title">
-      Free template for <span class="hidden xl:inline">creating websites with</span>
-      <span class="text-accent dark:text-white highlight"> Astro 2.0</span> + Tailwind CSS    </Fragment>
+      Hi, <span class="hidden xl:inline">👋,</span>
+      I'm <span class="text-accent dark:text-white highlight">icepcp.</span>
+    </Fragment>
 
     <Fragment slot="subtitle">
-      <span class="hidden sm:inline">
-        <span class="font-semibold">AstroWind</span> is a free, customizable and production-ready template for Astro 2.0 +
-        Tailwind CSS.</span
+      <span class="">
+        a.k.a. <span class="text-accent pb-2 dark:text-white highlight">Myat</span>
+        <br />
+        I like to develop websites, create videos, and edit them.</span
       >
-      <span class="block mb-1 sm:hidden font-bold text-blue-600">AstroWind: Production-ready.</span> Suitable for Startups,
-      Small Business, Sass Websites, Professional Portfolios, Marketing Websites, Landing Pages & Blogs.
     </Fragment>
   </Hero>
 
-  <!-- Note Widget ******************* -->
+  <!-- HighlightedPosts Widget ******* -->
 
-  <Note />
+  <LatestPosts
+    title="icepcp's Blog"
+    information={`This blog is where I share my thoughts, ideas, and experiences, with clients, friends, and the world.
+                `}
+    postIds={[
+      'get-started-website-with-astro-tailwind-css.md',
+      'how-to-customize-astrowind-to-your-brand.md',
+      'useful-resources-to-create-websites.md',
+      'astrowind-template-in-depth.md',
+    ]}
+  />
+
+  <!-- Stats Widget ****************** -->
+
+  <!--Stats
+    items={[
+      { name: 'Projects in progress', value: '10' },
+      { name: 'Stars', value: '24.8K' },
+      { name: 'Forks', value: '10.3K' },
+      { name: 'Users', value: '48.4K' },
+    ]}
+  /-->
 
   <!-- Features Widget *************** -->
 
   <Features
-    highlight="Features"
-    title="What you get with AstroWind"
-    subtitle="Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque rem aperiam, eaque ipsa quae."
+    highlight="SKILLS"
+    title="What can I do?"
+    subtitle=""
     items={[
       [
         {
-          title: 'Astro + Tailwind CSS Integration',
+          title: 'Website Building with Nuxt and HTML',
           description:
-            'A seamless integration between two great frameworks that offer high productivity, performance and versatility.',
-          icon: 'tabler:brand-tailwind',
+            'Nuxt is an open source framework under MIT license that makes web development simple and powerful.',
+          icon: 'tabler:app-window',
         },
         {
-          title: 'Ready-to-use Components',
-          description:
-            'Widgets made with Tailwind CSS ready to be used in Marketing Websites, SaaS, Blogs, Personal Profiles, Small Business...',
-          icon: 'tabler:components',
-        },
-        {
-          title: 'Best Practices',
-          description:
-            'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Morbi sagittis, quam nec venenatis lobortis, mi risus tempus nulla.',
-          icon: 'tabler:list-check',
+          title: 'Motion Graphics with After Effects',
+          description: 'Simple motion graphics, such as lyrics videos and product videos.',
+          icon: 'tabler:run',
         },
       ],
       [
         {
-          title: 'Excellent Page Speed',
-          description:
-            'Having a good page speed impacts organic search ranking, improves user experience (UI/UX) and increase conversion rates.',
-          icon: 'tabler:rocket',
+          title: 'Video Editing with Premiere Pro',
+          description: 'Video editing, such as vlogs, event videos, and short films.',
+          icon: 'tabler:movie',
         },
         {
-          title: 'Search Engine Optimization (SEO)',
-          description:
-            'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Morbi sagittis, quam nec venenatis lobortis, mi risus tempus nulla.',
-          icon: 'tabler:arrows-right-left',
-        },
-        {
-          title: 'Open to new ideas and contributions',
-          description:
-            'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Morbi sagittis, quam nec venenatis lobortis, mi risus tempus nulla.',
-          icon: 'tabler:bulb',
+          title: '3D Modeling and animation with Blender',
+          description: 'Generating assets for motion graphics and video editing, with much transulency.',
+          icon: 'tabler:box',
         },
       ],
     ]}
   />
 
+  <!-- CallToAction Widget *********** -->
+
+  <CallToAction
+    callToAction={{
+      text: 'Email me',
+      href: 'mailto:myat@icepcp.com',
+      icon: 'tabler:mail',
+    }}
+  >
+    <Fragment slot="title">
+      <br class="block sm:hidden" /><span class="sm:whitespace-nowrap">Hire me</span>
+    </Fragment>
+
+    <Fragment slot="subtitle">
+      Let's get in touch, email me!
+    </Fragment>
+  </CallToAction>
+
   <!-- Content Widget **************** -->
 
-  <Content
+  <!-- Content
     highlight="Inside template"
     title="And what's inside? ..."
     items={[
@@ -119,7 +139,7 @@ const meta = {
       },
     ]}
     image={{
-      src: import('~/assets/images/caos.jpg'),
+      src: import('../assets/images/caos.jpg'),
       alt: 'Colorful Image',
     }}
   >
@@ -128,11 +148,11 @@ const meta = {
       Ne dicta praesent ocurreret has, diam theophrastus at pro. Eos etiam regione ut, persius eripuit quo id. Sit te euismod
       tacimates.
     </Fragment>
-  </Content>
+  </Content -->
 
   <!-- Content Widget **************** -->
 
-  <Content
+  <!-- Content
     isReversed
     isAfterContent
     items={[
@@ -159,11 +179,11 @@ const meta = {
       src: import('~/assets/images/vintage.jpg'),
       alt: 'Vintage Image',
     }}
-  />
+  /-->
 
   <!-- Steps Widget ****************** -->
 
-  <Steps
+  <!-- Steps
     title="Get your dream website up and running in no time with AstroWind."
     items={[
       {
@@ -193,11 +213,11 @@ const meta = {
       src: import('~/assets/images/creativity.jpg'),
       alt: 'Steps image',
     }}
-  />
+  / -->
 
   <!-- Features2 Widget ************** -->
 
-  <Features2
+  <!-- Features2
     title="Most used widgets"
     subtitle="Provides frequently used components for building websites using Tailwind CSS"
     highlight="Components"
@@ -257,27 +277,11 @@ const meta = {
         icon: 'icon-park:page-template',
       },
     ]}
-  />
-
-  <!-- HighlightedPosts Widget ******* -->
-
-  <LatestPosts
-    title="Find out more content in our Blog"
-    information={`The blog is used to display AstroWind documentation.
-                        Each new article will be an important step that you will need to know to be an expert in creating a website using Astro + Tailwind CSS.
-                        Astro is a very interesting technology. Thanks.
-                `}
-    postIds={[
-      'get-started-website-with-astro-tailwind-css.md',
-      'how-to-customize-astrowind-to-your-brand.md',
-      'useful-resources-to-create-websites.md',
-      'astrowind-template-in-depth.md',
-    ]}
-  />
+  / -->
 
   <!-- FAQs Widget ******************* -->
 
-  <FAQs
+  <!-- FAQs
     title="Frequently Asked Questions"
     subtitle="Duis turpis dui, fringilla mattis sem nec, fringilla euismod neque. Morbi tincidunt lacus nec tortor scelerisque pulvinar."
     highlight="FAQs"
@@ -317,35 +321,5 @@ const meta = {
         },
       ],
     ]}
-  />
-
-  <!-- Stats Widget ****************** -->
-
-  <Stats
-    items={[
-      { name: 'Downloads', value: '132K' },
-      { name: 'Stars', value: '24.8K' },
-      { name: 'Forks', value: '10.3K' },
-      { name: 'Users', value: '48.4K' },
-    ]}
-  />
-
-  <!-- CallToAction Widget *********** -->
-
-  <CallToAction
-    callToAction={{
-      text: 'Get template',
-      href: 'https://github.com/onwidget/astrowind',
-      icon: 'tabler:download',
-    }}
-  >
-    <Fragment slot="title">
-      Astro + <br class="block sm:hidden" /><span class="sm:whitespace-nowrap">Tailwind CSS</span>
-    </Fragment>
-
-    <Fragment slot="subtitle">
-      Be very surprised by these huge fake numbers you are seeing on this page. <br class="hidden md:inline" />Don't
-      waste more time! :P
-    </Fragment>
-  </CallToAction>
+  / -->
 </Layout>
